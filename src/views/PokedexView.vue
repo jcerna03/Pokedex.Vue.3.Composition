@@ -1,22 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, type Ref } from 'vue'
 import PokeCard from '../components/PokeCard.vue'
+import { getDataAsync } from '@/services/PokemonService'
 
 const results: Ref<any> = ref([])
 
-onMounted(async () => {
-  const data = await (await fetch('https://pokeapi.co/api/v2/pokemon')).json()
-  for (const result of data.results) {
-    const pokemonDetails = await (await fetch(result.url)).json()
-    for (const ability of pokemonDetails.abilities) {
-      const abilityDetails = await (await fetch(ability.ability.url)).json()
-      ability.ability.description = abilityDetails.flavor_text_entries.filter(
-        (e: any) => e.language.name === 'en'
-      )[0].flavor_text
-    }
-    results.value.push(pokemonDetails)
-  }
-})
+onMounted(async () => (results.value = await getDataAsync()))
 </script>
 
 <template>
