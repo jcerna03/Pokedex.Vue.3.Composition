@@ -20,7 +20,6 @@
         :alt="pokemon.name"
         class="border card-img-top bg-white"
       />
-
       <div :class="`rounded-bottom p-3 bg-${types[0].type.name}-transparent`">
         <div v-for="({ ability }, idx) in abilities" :key="idx">
           <h6 class="card-text text-white">{{ ability.name }}</h6>
@@ -33,9 +32,6 @@
 
 <script lang="ts" setup>
 const props = defineProps<{ pokemon: any }>()
-
 // eslint-disable-next-line vue/no-setup-props-destructure
 const { types, abilities } = props.pokemon
 </script>
-
-<style lang="scss" scoped></style>
