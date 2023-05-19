@@ -1,7 +1,10 @@
-export async function getDataAsync() {
-  const response = []
+import type IPageRequest from '@/interfaces/IPageRequest'
 
-  const data = await (await fetch('https://pokeapi.co/api/v2/pokemon')).json()
+export async function getDataAsync({ page, limit }: IPageRequest): Promise<any> {
+  const response = []
+  const offset = (page - 1) * limit
+  const queryString = `?offset=${offset}&limit=${limit}`
+  const data = await (await fetch(`https://pokeapi.co/api/v2/pokemon${queryString}`)).json()
   for (const result of data.results) {
     const pokemonDetails = await (await fetch(result.url)).json()
     for (const { ability } of pokemonDetails.abilities) {
