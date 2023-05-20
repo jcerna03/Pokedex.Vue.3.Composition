@@ -1,23 +1,25 @@
 <script setup lang="ts">
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-// import { RouterLink, RouterView } from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
 </script>
 
 <template>
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <nav class="wrapper py-2 bg-light border-bottom">
+    <div class="container d-flex flex-wrap">
+      <ul class="nav me-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
+      </ul>
+      <ul class="nav">
+        <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
+        <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sign up</a></li>
+      </ul>
     </div>
-  </header> -->
-
+  </nav>
   <RouterView />
 </template>
