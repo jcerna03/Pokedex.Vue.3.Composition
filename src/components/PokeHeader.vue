@@ -23,6 +23,8 @@
 <script setup lang="ts">
 import { type Ref, ref } from 'vue'
 const inputModel: Ref<string> = ref('')
+
+defineExpose({ inputModel })
 </script>
 
 <style scoped></style>
